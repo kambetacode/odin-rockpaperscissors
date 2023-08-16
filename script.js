@@ -23,31 +23,32 @@ function getComputerChoice() {
 function playRound() {
     let computerSelection = getComputerChoice().toLowerCase()
     let playerSelection = prompt('Choose Rock, Paper or Scissors').toLowerCase()
+    let gameCount = `Wins: ${wins} Looses: ${looses}`
 
     if(playerSelection === computerSelection) { 
         count++
-        console.log('Wins: ' + wins, 'Looses: ' + looses)
+        console.log(gameCount)
         return console.log("This is a tie") , console.log('--------------------')
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
         wins++
         count++
-        console.log('Wins: ' + wins, 'Looses: ' + looses)
+        console.log(gameCount)
         return console.log('You win! rock beats scissors') , console.log('--------------------')
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         wins++
         count++
-        console.log('Wins: ' + wins, 'Looses: ' + looses)
+        console.log(gameCount)
         return console.log('You win! paper beats rock') , console.log('--------------------')
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         wins++
         count++
-        console.log('Wins: ' + wins, 'Looses: ' + looses)
+        console.log(gameCount)
         return console.log('You win! scissors beats paper') , console.log('--------------------')
     } else {
         count++
         looses++
-        console.log('Wins: ' + wins, 'Looses: ' + looses)
-        return console.log("You Lose! " + computerSelection + " beats " + playerSelection), console.log('--------------------')
+        console.log(gameCount)
+        return console.log(`You loose! ${computerSelection} beats ${playerSelection}`),  console.log('--------------------')
     }
 }
 

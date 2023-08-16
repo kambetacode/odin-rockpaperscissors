@@ -1,4 +1,6 @@
-
+let wins = 0
+let looses = 0
+let count = 0
 function getComputerChoice() {
     /*generating a random number between 0 and 2 */
     let random = () => {
@@ -16,21 +18,52 @@ function getComputerChoice() {
     }
 }
 
-function playRound (playerSelection, computerSelection) {
+function playRound() {
+    let computerSelection = getComputerChoice().toLowerCase()
+    let playerSelection = prompt('Choose Rock, Paper or Scissors').toLowerCase()
+
     if(playerSelection === computerSelection) { 
-        return "This is a tie" 
+        count++
+        console.log('Wins: ' + wins, 'Looses: ' + looses)
+        return console.log("This is a tie") , console.log('--------------------')
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        return 'You win! Rock beats Scissors'
+        wins++
+        count++
+        console.log('Wins: ' + wins, 'Looses: ' + looses)
+        return console.log('You win! rock beats scissors') , console.log('--------------------')
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return 'You win! Paper beats Rock'
+        wins++
+        count++
+        console.log('Wins: ' + wins, 'Looses: ' + looses)
+        return console.log('You win! paper beats rock') , console.log('--------------------')
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return 'You win! Scissors beats Paper'
+        wins++
+        count++
+        console.log('Wins: ' + wins, 'Looses: ' + looses)
+        return console.log('You win! scissors beats paper') , console.log('--------------------')
     } else {
-        return "You Lose! " + computerSelection + " beats " + playerSelection
+        count++
+        looses++
+        console.log('Wins: ' + wins, 'Looses: ' + looses)
+        return console.log("You Lose! " + computerSelection + " beats " + playerSelection), console.log('--------------------')
     }
 }
-    
-let computerSelection = getComputerChoice().toLowerCase()
-let playerSelection = 'Rock'.toLowerCase()
 
-console.log(playRound(playerSelection, computerSelection))
+function game() {
+    while(count < 5) {
+        playRound()
+    }
+
+    if(count === 5) {
+        console.log('GAME ENDS')
+        if(wins === looses){
+            console.log('Draw!!')
+        } else if(wins > looses) {
+            console.log('Player wins!!')
+        } else {
+            console.log('Computer wins!!')
+        }
+    }
+}
+
+game()

@@ -1,6 +1,7 @@
 let wins = 0
 let looses = 0
 let count = 0
+
 function getComputerChoice() {
     /*generating a random number between 0 and 2 */
     let random = () => {
@@ -18,6 +19,7 @@ function getComputerChoice() {
     }
 }
 
+/* function with the logic to play one round of rock paper and scissors */
 function playRound() {
     let computerSelection = getComputerChoice().toLowerCase()
     let playerSelection = prompt('Choose Rock, Paper or Scissors').toLowerCase()
@@ -49,6 +51,7 @@ function playRound() {
     }
 }
 
+/*function to play the game 5 times and added a conditional to add a message when the game ends (fifth round) and a message to announce who wins */
 function game() {
     while(count < 5) {
         playRound()

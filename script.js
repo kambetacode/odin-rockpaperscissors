@@ -23,36 +23,38 @@ function getComputerChoice() {
 function playRound() {
     let computerSelection = getComputerChoice().toLowerCase()
     let playerSelection = prompt('Choose Rock, Paper or Scissors').toLowerCase()
-    let gameCount = `Wins: ${wins} Looses: ${looses}`
+    // let gameCount = `Wins: ${wins} Looses: ${looses}`
 
     if(playerSelection === computerSelection) { 
         count++
         console.log(gameCount)
         return console.log("This is a tie") , console.log('--------------------')
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        wins++
-        count++
+        //wins++
+        //count++
         console.log(gameCount)
         return console.log('You win! rock beats scissors') , console.log('--------------------')
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        wins++
-        count++
+        //wins++
+        //count++
         console.log(gameCount)
         return console.log('You win! paper beats rock') , console.log('--------------------')
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        wins++
-        count++
+        //wins++
+        //count++
         console.log(gameCount)
         return console.log('You win! scissors beats paper') , console.log('--------------------')
     } else {
-        count++
-        looses++
+        //count++
+        //looses++
         console.log(gameCount)
         return console.log(`You loose! ${computerSelection} beats ${playerSelection}`),  console.log('--------------------')
     }
 }
 
 /*function to play the game 5 times and added a conditional to add a message when the game ends (fifth round) and a message to announce who wins */
+
+/*
 function game() {
     while(count < 5) {
         playRound()
@@ -71,3 +73,28 @@ function game() {
 }
 
 game()
+
+*/
+
+//This is the logic for the DOM management
+
+const container = document.querySelector('#container')
+
+const button1 = document.createElement('button')
+const button2 = document.createElement('button')
+const button3 = document.createElement('button')
+
+button1.classList.add('button')
+button1.setAttribute('id', 'rock')
+button1.textContent = 'Rock'
+container.appendChild(button1)
+
+button2.classList.add('button')
+button2.setAttribute('id', 'paper')
+button2.textContent = 'Paper'
+container.appendChild(button2)
+
+button3.classList.add('button')
+button3.setAttribute('id', 'scissors')
+button3.textContent = 'Scissors'
+container.appendChild(button3)

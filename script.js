@@ -98,3 +98,10 @@ button3.classList.add('button')
 button3.setAttribute('id', 'scissors')
 button3.textContent = 'Scissors'
 container.appendChild(button3)
+
+const buttons = container.querySelectorAll('button')
+
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) =>
+    console.log(e))
+})

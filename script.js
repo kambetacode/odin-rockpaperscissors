@@ -14,6 +14,7 @@ const button3 = document.createElement('button')
 const totalCount = document.createElement('p')
 const winner = document.createElement('p')
 const end = document.createElement('p')
+const announce = document.createElement('p')
 
 button1.classList.add('button')
 button1.setAttribute('id', 'rock')
@@ -50,6 +51,9 @@ winner.setAttribute('id', 'winner')
 
 end.setAttribute('id', 'end')
 
+announce.setAttribute('id', 'announce')
+
+results.appendChild(announce)
 results.appendChild(totalCount)
 results.appendChild(end)
 results.appendChild(winner)
@@ -83,32 +87,27 @@ function playRound(playerSelection) {
     while(count < 5) {
         if(playerSelection === computerSelection) { 
             count++
-            //console.log(gameCount)
-            return console.log("This is a tie") , console.log('--------------------')
+            return document.getElementById('announce').innerHTML = 'This is a tie'
         } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
             wins++
             count++
             document.getElementById('count').innerHTML = `Wins: ${wins} Looses: ${looses}`
-            //console.log(gameCount)
-            return console.log(`You win! ${playerSelection} beats ${computerSelection}`) , console.log('--------------------')
+            return document.getElementById('announce').innerHTML = `You win! ${playerSelection} beats ${computerSelection}`
         } else if (playerSelection === 'paper' && computerSelection === 'rock') {
             wins++
             count++
             document.getElementById('count').innerHTML = `Wins: ${wins} Looses: ${looses}`
-            //console.log(gameCount)
-            return console.log(`You win! ${playerSelection} beats ${computerSelection}`) , console.log('--------------------')
+            return document.getElementById('announce').innerHTML = `You win! ${playerSelection} beats ${computerSelection}`
         } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
             wins++
             count++
             document.getElementById('count').innerHTML = `Wins: ${wins} Looses: ${looses}`
-            //console.log(gameCount)
-            return console.log(`You win! ${playerSelection} beats ${computerSelection}`) , console.log('--------------------')
+            return document.getElementById('announce').innerHTML = `You win! ${playerSelection} beats ${computerSelection}`
         } else {
             count++
             looses++
             document.getElementById('count').innerHTML = `Wins: ${wins} Looses: ${looses}`
-            //console.log(gameCount)
-            return console.log(`You loose! ${computerSelection} beats ${playerSelection}`),  console.log('--------------------')
+            return document.getElementById('announce').innerHTML = `You loose! ${computerSelection} beats ${playerSelection}`
         }
     }
     endGame()

@@ -44,7 +44,7 @@ buttons.forEach((button) => {
         if(e.target == scissors) playRound('scissors')
     })
 })
-totalCount.textContent = `Wins: ${wins} Looses: ${looses}`
+totalCount.textContent = `Player: ${wins} Computer: ${looses}`
 totalCount.setAttribute('id', 'count')
 
 winner.setAttribute('id', 'winner')
@@ -84,29 +84,29 @@ function playRound(playerSelection) {
     let computerSelection = getComputerChoice().toLowerCase()
 
 
-    while(count < 5) {
+    while(wins < 5 && looses < 5) {
         if(playerSelection === computerSelection) { 
             count++
             return document.getElementById('announce').innerHTML = 'This is a tie'
         } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
             wins++
             count++
-            document.getElementById('count').innerHTML = `Wins: ${wins} Looses: ${looses}`
+            document.getElementById('count').innerHTML = `Player: ${wins} Computer: ${looses}`
             return document.getElementById('announce').innerHTML = `You win! ${playerSelection} beats ${computerSelection}`
         } else if (playerSelection === 'paper' && computerSelection === 'rock') {
             wins++
             count++
-            document.getElementById('count').innerHTML = `Wins: ${wins} Looses: ${looses}`
+            document.getElementById('count').innerHTML = `Player: ${wins} Computer: ${looses}`
             return document.getElementById('announce').innerHTML = `You win! ${playerSelection} beats ${computerSelection}`
         } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
             wins++
             count++
-            document.getElementById('count').innerHTML = `Wins: ${wins} Looses: ${looses}`
+            document.getElementById('count').innerHTML = `Player: ${wins} Computer: ${looses}`
             return document.getElementById('announce').innerHTML = `You win! ${playerSelection} beats ${computerSelection}`
         } else {
             count++
             looses++
-            document.getElementById('count').innerHTML = `Wins: ${wins} Looses: ${looses}`
+            document.getElementById('count').innerHTML = `Player: ${wins} Computer: ${looses}`
             return document.getElementById('announce').innerHTML = `You loose! ${computerSelection} beats ${playerSelection}`
         }
     }
@@ -117,7 +117,7 @@ function playRound(playerSelection) {
 
 
 function endGame() {
-    if(count === 5) {
+    if(wins < 5 || looses < 5) {
         document.getElementById('end').innerHTML = `GAME ENDS`
     }
 

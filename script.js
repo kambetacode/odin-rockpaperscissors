@@ -20,34 +20,33 @@ function getComputerChoice() {
 }
 
 /* function with the logic to play one round of rock paper and scissors */
-function playRound() {
+function playRound(playerSelection) {
     let computerSelection = getComputerChoice().toLowerCase()
-    let playerSelection = prompt('Choose Rock, Paper or Scissors').toLowerCase()
     // let gameCount = `Wins: ${wins} Looses: ${looses}`
 
     if(playerSelection === computerSelection) { 
-        count++
-        console.log(gameCount)
+        //count++
+        //console.log(gameCount)
         return console.log("This is a tie") , console.log('--------------------')
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
         //wins++
         //count++
-        console.log(gameCount)
-        return console.log('You win! rock beats scissors') , console.log('--------------------')
+        //console.log(gameCount)
+        return console.log(`You win! ${playerSelection} beats ${computerSelection}`) , console.log('--------------------')
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         //wins++
         //count++
-        console.log(gameCount)
-        return console.log('You win! paper beats rock') , console.log('--------------------')
+        //console.log(gameCount)
+        return console.log(`You win! ${playerSelection} beats ${computerSelection}`) , console.log('--------------------')
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         //wins++
         //count++
-        console.log(gameCount)
-        return console.log('You win! scissors beats paper') , console.log('--------------------')
+        //console.log(gameCount)
+        return console.log(`You win! ${playerSelection} beats ${computerSelection}`) , console.log('--------------------')
     } else {
         //count++
         //looses++
-        console.log(gameCount)
+        //console.log(gameCount)
         return console.log(`You loose! ${computerSelection} beats ${playerSelection}`),  console.log('--------------------')
     }
 }
@@ -101,7 +100,14 @@ container.appendChild(button3)
 
 const buttons = container.querySelectorAll('button')
 
+const rock = document.querySelector(`button[id="rock"]`)
+const paper = document.querySelector(`button[id="paper"]`)
+const scissors = document.querySelector(`button[id="scissors"]`)
+
 buttons.forEach((button) => {
-    button.addEventListener('click', (e) =>
-    console.log(e))
+    button.addEventListener('click', (e) => {
+        if(e.target == rock) playRound('rock')
+        if(e.target == paper) playRound('paper')
+        if(e.target == scissors) playRound('scissors')
+    })
 })
